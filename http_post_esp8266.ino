@@ -29,28 +29,25 @@ void setup() {
 }
  
 void loop() {
- 
     server.handleClient(); //Handling of incoming requests
- 
 }
  
 void handleBody() { //Handler for the body path
   if (server.hasArg("plain")== false){ //Check if body received
-
         server.send(200, "text/plain", "Body not received");
         return;
-
   }
+  
   if(server.arg("plain")=="centro"){
     analogWrite(2, 512);
   }else{
     analogWrite(2,1023);
   }
+  
   String message = "Body received:\n";
          message += server.arg("plain");
          message += "\n";
 
-  
   server.send(200, "text/plain", message);
   Serial.println(message);
 }
