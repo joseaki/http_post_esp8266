@@ -46,9 +46,10 @@ void handleBody() { //Handler for the body path
   int pwm_value_right=pwm_str_right.toInt();
   String pwm_str_left = server.arg("v_left");
   int pwm_value_left=pwm_str_left.toInt();
-  
+
   analogWrite(2,pwm_value_right);
-  analogWrite(0,pwm_value_left);
+  analogWrite(14,pwm_value_right);
+  analogWrite(12,pwm_value_left);
   /*
   if(server.arg("plain")=="centro"){
     analogWrite(2, 512);
